@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './styles.module.css'
 import mapOfHunData from './utils/hu.json'
+import { getJson } from './utils/fetchJson'
 
 import {
   ComposableMap,
@@ -15,12 +16,18 @@ export const ExampleComponent = ({ text }) => {
 
 export const MapOfHungary = (props) => {
   const { config } = props
+  const geoUrl =
+    'https://raw.githubusercontent.com/zilahir/react-magyarorszag-map/master/src/utils/hu.json'
   const [active, setActive] = useState([])
+  const [rawData, setRawData] = useState(null)
+  useEffect(() => {
+    const fetchedRaw = getJson(geoUrl)
+    fetchedRaw.then((res) => {
+      console.debug('res', res)
+      setRawData(res)
+    })
+  }, [])
   function selectCounty(index) {
-    console.debug(
-      'index',
-      geoUrl.objects.egybefuzve.geometries[index].properties
-    )
     if (!active.includes(index)) {
       setActive([...active, index])
     } else {
@@ -28,9 +35,6 @@ export const MapOfHungary = (props) => {
       setActive(filtered)
     }
   }
-
-  const geoUrl =
-    'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json'
 
   return (
     <div>
