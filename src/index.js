@@ -10,7 +10,7 @@ import {
 } from 'react-simple-maps'
 
 export const MapOfHungary = (props) => {
-  const { config } = props
+  const { config, getBackValue } = props
   const geoUrl =
     'https://raw.githubusercontent.com/zilahir/react-magyarorszag-map/master/src/utils/hu.json'
   const [active, setActive] = useState([])
@@ -32,6 +32,12 @@ export const MapOfHungary = (props) => {
     }
   }
 
+  useEffect(() => {
+    if (getBackValue) {
+      getBackValue(active)
+    }
+  }, [active])
+
   return (
     <div
       className={`${
@@ -40,7 +46,10 @@ export const MapOfHungary = (props) => {
           : styles.rootContainer
       }`}
     >
-      <ComposableMap projectionConfig={{ scale: 7000 }}>
+      <ComposableMap
+        projectionConfig={{ scale: 7000, rotate: [-30, 0] }}
+        projection='geoAlbers'
+      >
         <ZoomableGroup center={[19.5058, 47.7612]}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
@@ -49,7 +58,7 @@ export const MapOfHungary = (props) => {
                   fill={active.includes(index) ? '#000' : '#fff'}
                   key={geo.rsmKey}
                   geography={geo}
-                  strokeWidth={2}
+                  strokeWidth={0.5}
                   stroke={active.includes(index) ? '#fff' : '#000'}
                   onClick={() => selectCounty(index)}
                 />
