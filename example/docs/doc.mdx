@@ -1,2 +1,35 @@
-## Demo
+## Reactive Hungary Map
+
+This is a `React` map, implemented on the top of the amazing [react-simple-maps](https://github.com/zcreativelabs/react-simple-maps/) library. 
+It knows the _counties_ of Hungary, rendered using `geoJson`, of `SVG`s, so it's scaleable.
+
+The implementation exports a single component with the name of `MapOfHungary`. 
+
+## Usage
+
+```jsx
+
+import { MapOfHungary } from '@zilahir/react-magyarorszag-map'
+
+<>
+  <MapOfHungary />
+</>  
+```
+
+The components comes with a bunch of built in to make actual use of the `Component`. 
+
+## Props
+
+| name                 | type                 | default   | isRequired | example                                                 | descriptoin                                                                                                                                     |
+|----------------------|----------------------|-----------|------------|---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `containerClassName` | `PropTypes . string` | `null`    | `false`    | `containerClassName={styles.mapContainer}`              | The classname passed to the wrapper component of the Map.                                                                                       |
+| `onClick`            | `PropTypes.func`     | `null`    | `true`     | `onClick={clicked => console.debug('clicked', clicked)} | A `callback` function which will be executed on the clicked County.                                                                             |
+| `selected`           | `PropTypes.Array`    | `[]`      | `false`    | `selected={[1, 2, 3 ... n]}`                            | By implementing a `callback` function, you are given the change to implement a logic on the map, as well as provide different styling settings. |
+| `scale`              | `PropTypes.number`   | 6000      | `false`    | `scale={12000}`                                         | The value the map should scaled up by.                                                                                                          |
+| `stroke`             | `PropTypes.number`   | 0.5       | `false`    | `stroke={1}`                                            | The value of the stroke on the `SVG` [Read more](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes)                   |
+| `activeFill`         | `PropTypes.string`   | `#000000` | `false`    | `activeFill="#ff0000"`                                  | `HEX` color of the fill should be applied on a county when it's currently selected.                                                             |
+| `inActiveFill`       | `PropTypes.string`   | `#ffffff` | `false`    | `inActiveFill="#ff0000"`                                | `HEX` color of the fill should be applied on a county when it's currently *NOT* selected.                                                       |
+| `activeStroke`       | `PropTypes.string`   | `#ffffff` | `false`    | `activeStroke="#ff0000"`                                | `HEX` color of the stroke should be applied on a county when it's currently selected.                                                           |
+| `inActiveStroke`     | `PropTypes.string`   | `#000000` | `false`    | `activeStroke="#ff0000"`                                | `HEX` color of the stroke should be applied on a county when it's currently *NOT* selected.                                                     |
+
 

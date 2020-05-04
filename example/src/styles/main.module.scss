@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 .mainContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -9,5 +11,42 @@
 
   .docContainer {
     background-color: #f9f9f9;
+    padding: 2rem;
+    pre {
+      background-color: $code_bg;
+      padding: 1rem;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    table {
+      thead {
+        tr {
+          th {
+            background-color: $code_bg;
+            padding: 20px 5px;
+            color: #fff;
+            &:first-of-type {
+              border-top-left-radius: 20px;
+            }
+            &:last-of-type {
+              border-top-right-radius: 20px;
+            }
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            border-bottom: 1px dotted #ccc;
+            border-right: 1px dotted #ccc;
+            padding: 10px;
+            &:last-of-type {
+              min-width: 300px;
+            }
+          }
+        }
+      }
+    }
   }
 }

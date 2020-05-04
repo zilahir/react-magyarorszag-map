@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 import { getJson } from './utils/fetchJson'
 
-import {
-  ComposableMap,
-  ZoomableGroup,
-  Geographies,
-  Geography
-} from 'react-simple-maps'
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 
 export const MapOfHungary = (props) => {
   const { containerClassName, onClick, selected, stroke, scale } = props
@@ -60,6 +55,7 @@ export const MapOfHungary = (props) => {
 
 MapOfHungary.defaultProps = {
   containerClassName: null,
+  onClick: null,
   selected: [],
   scale: 6000,
   stroke: 0.5
@@ -67,6 +63,7 @@ MapOfHungary.defaultProps = {
 
 MapOfHungary.propTypes = {
   containerClassName: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
   selected: PropTypes.arrayOf(PropTypes.any),
   scale: PropTypes.number.isRequired,
   stroke: PropTypes.number
