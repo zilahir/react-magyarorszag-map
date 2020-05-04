@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles.module.scss'
-import mapOfHunData from './utils/hu.json'
 import { getJson } from './utils/fetchJson'
 
 import {
@@ -9,10 +8,6 @@ import {
   Geographies,
   Geography
 } from 'react-simple-maps'
-
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
 
 export const MapOfHungary = (props) => {
   const { config } = props
