@@ -10,10 +10,9 @@ import {
 } from 'react-simple-maps'
 
 export const MapOfHungary = (props) => {
-  const { config, getBackValue } = props
+  const { config, onClick, selected } = props
   const geoUrl =
     'https://raw.githubusercontent.com/zilahir/react-magyarorszag-map/master/src/utils/hu.json'
-  const [active, setActive] = useState([])
   const [rawData, setRawData] = useState(null)
   useEffect(() => {
     const fetchedRaw = getJson(geoUrl)
@@ -24,19 +23,10 @@ export const MapOfHungary = (props) => {
   }, [])
   function selectCounty(index) {
     console.debug('index', rawData.objects.rawData.geometries[index].properties)
-    if (!active.includes(index)) {
-      setActive([...active, index])
-    } else {
-      const filtered = active.filter((i) => i !== index)
-      setActive(filtered)
+    if (onClick) {
+      onClick(index)
     }
   }
-
-  useEffect(() => {
-    if (getBackValue) {
-      getBackValue(active)
-    }
-  }, [active])
 
   return (
     <div
@@ -55,11 +45,11 @@ export const MapOfHungary = (props) => {
             {({ geographies }) =>
               geographies.map((geo, index) => (
                 <Geography
-                  fill={active.includes(index) ? '#000' : '#fff'}
+                  fill={selected.includes(index) ? '#000' : '#fff'}
                   key={geo.rsmKey}
                   geography={geo}
                   strokeWidth={0.5}
-                  stroke={active.includes(index) ? '#fff' : '#000'}
+                  stroke={selected.includes(index) ? '#fff' : '#000'}
                   onClick={() => selectCounty(index)}
                 />
               ))
