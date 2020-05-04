@@ -1,0 +1,9 @@
+.rootContainer {
+  svg {
+    path {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

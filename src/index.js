@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 import mapOfHunData from './utils/hu.json'
 import { getJson } from './utils/fetchJson'
 
@@ -28,6 +28,7 @@ export const MapOfHungary = (props) => {
     })
   }, [])
   function selectCounty(index) {
+    console.debug('index', rawData.objects.rawData.geometries[index].properties)
     if (!active.includes(index)) {
       setActive([...active, index])
     } else {
@@ -37,7 +38,13 @@ export const MapOfHungary = (props) => {
   }
 
   return (
-    <div>
+    <div
+      className={`${
+        config && config.containerClassName
+          ? config.containerClassName
+          : styles.rootContainer
+      }`}
+    >
       <ComposableMap projectionConfig={{ scale: 7000 }}>
         <ZoomableGroup center={[19.5058, 47.7612]}>
           <Geographies geography={geoUrl}>
