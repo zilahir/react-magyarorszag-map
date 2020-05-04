@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "mdx.macro": "^0.2.9",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
+    "react-magyarorszag-map": "file:..",
     "react-scripts": "file:../node_modules/react-scripts",
-    "react-magyarorszag-map": "file:.."
+    "react-spinners": "^0.8.3"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

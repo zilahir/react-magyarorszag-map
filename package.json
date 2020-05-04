@@ -53,6 +53,7 @@
   ],
   "dependencies": {
     "node-sass": "^4.14.0",
+    "prop-types": "^15.7.2",
     "react-simple-maps": "^2.0.0"
   }
 }

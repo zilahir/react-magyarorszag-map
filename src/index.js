@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 import { getJson } from './utils/fetchJson'
 
@@ -10,7 +11,7 @@ import {
 } from 'react-simple-maps'
 
 export const MapOfHungary = (props) => {
-  const { config, onClick, selected } = props
+  const { containerClassName, onClick, selected, stroke, scale } = props
   const geoUrl =
     'https://raw.githubusercontent.com/zilahir/react-magyarorszag-map/master/src/utils/hu.json'
   const [rawData, setRawData] = useState(null)
@@ -29,34 +30,44 @@ export const MapOfHungary = (props) => {
   }
 
   return (
-    <div
-      className={`${
-        config && config.containerClassName
-          ? config.containerClassName
-          : styles.rootContainer
-      }`}
-    >
+    <div className={`${containerClassName || styles.rootContainer}`}>
       <ComposableMap
-        projectionConfig={{ scale: 7000, rotate: [-30, 0] }}
+        projectionConfig={{
+          scale,
+          rotate: [-30, 0],
+          center: [-10.5, 47.7612]
+        }}
         projection='geoAlbers'
       >
-        <ZoomableGroup center={[19.5058, 47.7612]}>
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo, index) => (
-                <Geography
-                  fill={selected.includes(index) ? '#000' : '#fff'}
-                  key={geo.rsmKey}
-                  geography={geo}
-                  strokeWidth={0.5}
-                  stroke={selected.includes(index) ? '#fff' : '#000'}
-                  onClick={() => selectCounty(index)}
-                />
-              ))
-            }
-          </Geographies>
-        </ZoomableGroup>
+        <Geographies geography={geoUrl}>
+          {({ geographies }) =>
+            geographies.map((geo, index) => (
+              <Geography
+                fill={selected.includes(index) ? '#000' : '#fff'}
+                key={geo.rsmKey}
+                geography={geo}
+                strokeWidth={stroke}
+                stroke={selected.includes(index) ? '#fff' : '#000'}
+                onClick={() => selectCounty(index)}
+              />
+            ))
+          }
+        </Geographies>
       </ComposableMap>
     </div>
   )
+}
+
+MapOfHungary.defaultProps = {
+  containerClassName: null,
+  selected: [],
+  scale: 6000,
+  stroke: 0.5
+}
+
+MapOfHungary.propTypes = {
+  containerClassName: PropTypes.string,
+  selected: PropTypes.arrayOf(PropTypes.any),
+  scale: PropTypes.number.isRequired,
+  stroke: PropTypes.number
 }
