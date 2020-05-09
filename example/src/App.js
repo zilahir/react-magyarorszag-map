@@ -6,6 +6,8 @@ import 'react-magyarorszag-map/dist/index.css'
 import styles from './styles/main.module.scss'
 import Loader from './components/common/Loader'
 
+import huMapData from 'react-magyarorszag-map/src/utils/hu.json'
+
 const Documentation = lazy(() => importMDX('../docs/doc.mdx'))
 
 const App = () => {
@@ -26,6 +28,24 @@ const App = () => {
           selected={active}
           activeFill="#ff0000"
         />
+        <div className={styles.console}>
+          <p>
+            {JSON.stringify(active)}
+          </p>
+        </div>
+        <div className={styles.console}>
+          <ul>
+            {
+              active.map(curr => (
+                <li>
+                  {
+                    JSON.stringify(huMapData.objects.rawData.geometries[curr].properties)
+                  }
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
       <div className={styles.docContainer}>
         <Suspense fallback={<Loader />}>

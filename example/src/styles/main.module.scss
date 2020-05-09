@@ -16,6 +16,7 @@
       background-color: $code_bg;
       padding: 1rem;
       color: #fff;
+      font-family: 'Fira Code', monospace;
       border-radius: 10px;
     }
 
@@ -46,6 +47,24 @@
             }
           }
         }
+      }
+    }
+  }
+
+  .console {
+    background: rgba($color: $code_bg, $alpha: 1.0);
+    padding: 20px;
+    p, li {
+      color: #fff;
+      word-break: break-all;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        margin-bottom: 10px;
+        font-family: 'Fira Code', monospace;
       }
     }
   }
