@@ -12,18 +12,7 @@ npm install --save react-magyarorszag-map
 
 ## Usage
 
-```jsx
-import React, { Component } from 'react'
 
-import MyComponent from 'react-magyarorszag-map'
-import 'react-magyarorszag-map/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
-```
 
 ## License
 
