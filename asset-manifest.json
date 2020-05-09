@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-magyarorszag-map/static/css/main.37a19c1a.chunk.css",
+    "main.js": "/react-magyarorszag-map/static/js/main.df600dd1.chunk.js",
+    "main.js.map": "/react-magyarorszag-map/static/js/main.df600dd1.chunk.js.map",
+    "runtime-main.js": "/react-magyarorszag-map/static/js/runtime-main.f320f2b4.js",
+    "runtime-main.js.map": "/react-magyarorszag-map/static/js/runtime-main.f320f2b4.js.map",
+    "static/js/2.77d7a1f4.chunk.js": "/react-magyarorszag-map/static/js/2.77d7a1f4.chunk.js",
+    "static/js/2.77d7a1f4.chunk.js.map": "/react-magyarorszag-map/static/js/2.77d7a1f4.chunk.js.map",
+    "static/js/3.8951bf6f.chunk.js": "/react-magyarorszag-map/static/js/3.8951bf6f.chunk.js",
+    "static/js/3.8951bf6f.chunk.js.map": "/react-magyarorszag-map/static/js/3.8951bf6f.chunk.js.map",
+    "index.html": "/react-magyarorszag-map/index.html",
+    "precache-manifest.45e1dffd37f1c5fd30954faffb510ba1.js": "/react-magyarorszag-map/precache-manifest.45e1dffd37f1c5fd30954faffb510ba1.js",
+    "service-worker.js": "/react-magyarorszag-map/service-worker.js",
+    "static/css/main.37a19c1a.chunk.css.map": "/react-magyarorszag-map/static/css/main.37a19c1a.chunk.css.map",
+    "static/js/2.77d7a1f4.chunk.js.LICENSE.txt": "/react-magyarorszag-map/static/js/2.77d7a1f4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f320f2b4.js",
+    "static/js/2.77d7a1f4.chunk.js",
+    "static/css/main.37a19c1a.chunk.css",
+    "static/js/main.df600dd1.chunk.js"
+  ]
+}
