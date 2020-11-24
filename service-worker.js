@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-magyarorszag-map/precache-manifest.45e1dffd37f1c5fd30954faffb510ba1.js"
+  "/react-magyarorszag-map/precache-manifest.12bab0f11483d203fa51823ade056e78.js"
 );
 
 self.addEventListener('message', (event) => {
